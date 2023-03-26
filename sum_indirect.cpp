@@ -28,6 +28,6 @@ int64_t sum(int64_t size, uint64_t array[]) {
       index = array[index];
    }
 
-   return 0;
+   return sum;
 }
 
