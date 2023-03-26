@@ -8,17 +8,24 @@
 
 
 
-void 
-setup(int64_t N, uint64_t A[])
-{
-   printf(" inside sum_vector problem_setup, N=%lld \n", N);
+void setup(int64_t size, uint64_t array[]) {
+   printf(" inside sum_vector problem_setup, N=%lld \n", size);
+
+   // Fill the array with 0.. size-1
+   for (int i = 0; i < size; i++) {
+      array[i] = i;
+   }
 }
 
-int64_t
-sum(int64_t N, uint64_t A[])
-{
-   printf(" inside sum_vector perform_sum, N=%lld \n", N);
+int64_t sum(int64_t size, uint64_t array[]) {
+   printf(" inside sum_vector perform_sum, N=%lld \n", size);
 
-   return 0;
+   int64_t sum = 0;
+
+   for (int i = 0; i < size; i++) {
+      sum += array[i];
+   }
+
+   return sum;
 }
 
