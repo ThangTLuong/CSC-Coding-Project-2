@@ -19,17 +19,10 @@ extern int64_t sum(int64_t N, uint64_t A[]);
 
 using namespace std;
 
-double getMFLOPs(int64_t size, double elapsed)
-{
-  // Since all of the sum functions only use 1 arithmatic operation
-  // I can just use the size for the # of ops
-  return (size / 1000000) / elapsed;
-}
-
 /* The benchmarking program */
 int main(int argc, char **argv)
 {
-  cout << fixed << setprecision(2);
+  cout << fixed << setprecision(10);
 
 #define MAX_PROBLEM_SIZE 1 << 28 //  256M
   vector<int64_t> problem_sizes{MAX_PROBLEM_SIZE >> 5, MAX_PROBLEM_SIZE >> 4, MAX_PROBLEM_SIZE >> 3, MAX_PROBLEM_SIZE >> 2, MAX_PROBLEM_SIZE >> 1, MAX_PROBLEM_SIZE};
@@ -57,10 +50,9 @@ int main(int argc, char **argv)
     // insert your end timer code here, and print out elapsed time for this problem size
     chrono::time_point<chrono::high_resolution_clock> end_time = chrono::high_resolution_clock::now();
     chrono::duration<double> elapsed = end_time - start_time;
-    cout << " Elapsed time is : " << elapsed.count() << " " << endl;
+    cout << " Elapsed time is : " << elapsed.count() << "\n";
 
     printf(" Sum result = %lld \n", total);
-    printf(" MFLOP/s = %lld \n", getMFLOPs(size, elapsed.count()));
 
   } // end loop over problem sizes
 }

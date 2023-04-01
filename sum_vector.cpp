@@ -19,8 +19,6 @@ void setup(int64_t size, uint64_t array[])
 
 int64_t sum(int64_t size, uint64_t array[])
 {
-   printf(" inside sum_vector perform_sum, N=%lld \n", size);
-
    int64_t sum = 0;
 
    for (int i = 0; i < size; i++)

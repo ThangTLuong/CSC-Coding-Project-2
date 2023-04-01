@@ -19,10 +19,8 @@ void setup(int64_t size, uint64_t array[])
 
 int64_t sum(int64_t size, uint64_t array[])
 {
-  printf(" inside sum_indirect perform_sum, N=%lld \n", size);
-
   int64_t sum = 0;
-  int64_t index = array[0];
+  int64_t index = array[1];
   int64_t temp;
 
   for (int i = 0; i < size; i++)
