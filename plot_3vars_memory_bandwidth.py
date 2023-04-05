@@ -36,7 +36,7 @@ code1_time = df[var_names[1]].values.tolist()
 code2_time = df[var_names[2]].values.tolist()
 code3_time = df[var_names[3]].values.tolist()
 
-plt.title("Three algorithms' % memory bandwidth utilization comparison")
+plt.title("Problem Size vs. % Peak Memory Bandwidth Utilized")
 
 xlocs = [i for i in range(len(problem_sizes))]
 
