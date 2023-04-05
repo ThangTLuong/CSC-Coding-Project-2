@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     // insert your end timer code here, and print out elapsed time for this problem size
     chrono::time_point<chrono::high_resolution_clock> end_time = chrono::high_resolution_clock::now();
     chrono::duration<double> elapsed = end_time - start_time;
-    cout << " Elapsed time is : " << elapsed.count() << "\n";
+    cout << " Elapsed time is : " << elapsed.count() << endl;
 
     printf(" Sum result = %lld \n", total);
 

@@ -36,7 +36,7 @@ code1_time = df[var_names[1]].values.tolist()
 code2_time = df[var_names[2]].values.tolist()
 code3_time = df[var_names[3]].values.tolist()
 
-plt.title("Three algorithms MFLOP/s comparison")
+plt.title("Three algorithms' memory latency comparison")
 
 xlocs = [i for i in range(len(problem_sizes))]
 
@@ -50,7 +50,7 @@ plt.plot(code3_time, "g-^")
 #plt.yscale("log")
 
 plt.xlabel("Problem Sizes")
-plt.ylabel("Memory latency in ps")
+plt.ylabel("Memory latency in ns")
 
 varNames = [var_names[1], var_names[2], var_names[3]]
 plt.legend(varNames, loc="best")
