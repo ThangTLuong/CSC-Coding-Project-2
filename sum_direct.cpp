@@ -6,19 +6,20 @@
 #include <vector>
 #include <string.h>
 
-
-
-void 
-setup(int64_t N, uint64_t A[])
+// Leave as is
+void setup(int64_t size, uint64_t array[])
 {
-   printf(" inside direct_sum problem_setup, N=%lld \n", N);
+   printf(" inside direct_sum problem_setup, N=%lld \n", size);
 }
 
-int64_t
-sum(int64_t N, uint64_t A[])
+int64_t sum(int64_t size, uint64_t array[])
 {
-   printf(" inside direct_sum perform_sum, N=%lld \n", N);
+   int64_t sum = 0;
 
-   return 0;
+   for (int i = 0; i < size; i++)
+   {
+      sum += i;
+   }
+
+   return sum;
 }
-

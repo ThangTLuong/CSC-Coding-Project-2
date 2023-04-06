@@ -6,19 +6,29 @@
 #include <vector>
 #include <string.h>
 
-
-
-void 
-setup(int64_t N, uint64_t A[])
+void setup(int64_t size, uint64_t array[])
 {
-   printf(" inside sum_indirect problem_setup, N=%lld \n", N);
+  printf(" inside sum_indirect problem_setup, N=%lld \n", size);
+
+  // Fill array with randomly generated numbers: (0.. size-1) % size... I guess?
+  for (int i = 0; i < size; i++)
+  {
+    array[i] = lrand48() % size;
+  }
 }
 
-int64_t
-sum(int64_t N, uint64_t A[])
+int64_t sum(int64_t size, uint64_t array[])
 {
-   printf(" inside sum_indirect perform_sum, N=%lld \n", N);
+  int64_t sum = 0;
+  int64_t index = array[1];
+  int64_t temp;
 
-   return 0;
+  for (int i = 0; i < size; i++)
+  {
+    temp = array[index];
+    sum += temp;
+    index = temp;
+  }
+
+  return sum;
 }
-
