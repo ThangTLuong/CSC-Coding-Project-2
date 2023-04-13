@@ -25,12 +25,16 @@ int main(int argc, char **argv)
   cout << fixed << setprecision(10);
 
 #define MAX_PROBLEM_SIZE 1 << 28 //  256M
-  vector<int64_t> problem_sizes{MAX_PROBLEM_SIZE >> 5, MAX_PROBLEM_SIZE >> 4, MAX_PROBLEM_SIZE >> 3, MAX_PROBLEM_SIZE >> 2, MAX_PROBLEM_SIZE >> 1, MAX_PROBLEM_SIZE};
+  vector<int64_t> problem_sizes{1000000, MAX_PROBLEM_SIZE};
 
   vector<uint64_t> array(MAX_PROBLEM_SIZE);
 
   int64_t total;
   int n_problems = problem_sizes.size();
+
+  chrono::time_point<chrono::high_resolution_clock> start_time;
+  chrono::time_point<chrono::high_resolution_clock> end_time;
+  chrono::duration<double> elapsed;
 
   /* For each test size */
   for (int64_t size : problem_sizes)
@@ -39,18 +43,23 @@ int main(int argc, char **argv)
 
     // invoke user code to set up the problem
     setup(size, &array[0]);
+    int32_t numberOfLoops = 0;
 
-    // insert your timer code here
-
-    chrono::time_point<chrono::high_resolution_clock> start_time = chrono::high_resolution_clock::now();
-
-    // invoke method to perform the sum
-    total = sum(size, &array[0]);
+    elapsed = chrono::milliseconds::zero();
+    start_time = chrono::high_resolution_clock::now();
+    while (elapsed.count() < 30.00)
+    {
+      // invoke method to perform the sum
+      total = sum(size, &array[0]);
+      end_time = chrono::high_resolution_clock::now();
+      elapsed = end_time - start_time;
+      numberOfLoops++;
+    }
 
     // insert your end timer code here, and print out elapsed time for this problem size
-    chrono::time_point<chrono::high_resolution_clock> end_time = chrono::high_resolution_clock::now();
-    chrono::duration<double> elapsed = end_time - start_time;
-    cout << " Elapsed time is : " << elapsed.count() << endl;
+
+    cout << " Total number of time sum() was called: " << numberOfLoops << "\n"
+         << " Elapsed time is : " << elapsed.count() << endl;
 
     printf(" Sum result = %lld \n", total);
 
